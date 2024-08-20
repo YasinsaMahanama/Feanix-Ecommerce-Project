@@ -33,5 +33,6 @@ public class Product {
     private FileResource fileResource;
 
     @OneToMany(mappedBy = "product")
-    private Set<CustomerOrderDetails> customerOrderDetails = new HashSet<>();
+    private Set<CustomerOrderDetails> orderDetails = new HashSet<>();
+
 }

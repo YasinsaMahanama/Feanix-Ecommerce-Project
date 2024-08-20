@@ -28,9 +28,9 @@ public class CustomerOrder {
     private ApplicationUser user;
 
     @OneToMany(mappedBy = "customerOrder")
-    private Set<CustomerOrderDetails> customerOrderDetails = new HashSet<>();
+    private Set<CustomerOrderDetails> orderDetails = new HashSet<>();
 
     @OneToOne(mappedBy = "customerOrder")
-    private Product product;
+    private Payment payment;
 
 }

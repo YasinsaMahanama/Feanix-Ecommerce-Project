@@ -33,7 +33,8 @@ public class Payment {
     @Column(name = "amount", nullable = false)
     private double amount;
 
-    @Column(name = "customer_order_id", length = 80, unique = true, nullable = false)
-    private String customerOrder;
+    @OneToOne
+    @JoinColumn(name = "customer_order_id", unique = true, nullable = false)
+    private CustomerOrder customerOrder;
 
 }
