@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "customer_order")
 public class CustomerOrder {
@@ -24,5 +26,11 @@ public class CustomerOrder {
     @ManyToOne
     @JoinColumn(name = "user", nullable = false)
     private ApplicationUser user;
+
+    @OneToMany(mappedBy = "customerOrder")
+    private Set<CustomerOrderDetails> customerOrderDetails = new HashSet<>();
+
+    @OneToOne(mappedBy = "customerOrder")
+    private Product product;
 
 }

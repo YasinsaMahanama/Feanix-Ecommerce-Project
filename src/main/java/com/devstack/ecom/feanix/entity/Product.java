@@ -1,13 +1,13 @@
 package com.devstack.ecom.feanix.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "product")
 @Getter
@@ -31,4 +31,7 @@ public class Product {
 
     @Embedded
     private FileResource fileResource;
+
+    @OneToMany(mappedBy = "product")
+    private Set<CustomerOrderDetails> customerOrderDetails = new HashSet<>();
 }
